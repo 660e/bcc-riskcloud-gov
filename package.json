@@ -1,0 +1,29 @@
+{
+  "name": "bcc-riskcloud-gov",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "serve": "vite",
+    "build:dev": "vue-tsc && vite build --mode development",
+    "build:test": "vue-tsc && vite build --mode test",
+    "build:prod": "vue-tsc && vite build --mode production",
+    "type:check": "vue-tsc --noEmit --skipLibCheck",
+    "preview": "npm run build:dev && vite preview",
+    "lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src",
+    "lint:prettier": "prettier --write \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "lint:lint-staged": "lint-staged",
+    "prepare": "husky install",
+    "release": "standard-version",
+    "commit": "git add -A && czg && git push"
+  },
+  "dependencies": {
+    "@bcc/components": "workspace:^",
+    "@bcc/ui": "workspace:^",
+    "@bcc/utils": "workspace:^"
+  },
+  "devDependencies": {}
+}

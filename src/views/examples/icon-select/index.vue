@@ -1,0 +1,19 @@
+<template>
+  <div class="card h-full p-5 space-y-5">
+    <span class="text">图标选择器</span>
+    <icon-select v-model:icon-value="iconValue" />
+    <el-descriptions title="配置项" :column="1" border>
+      <el-descriptions-item label="iconValue">双向绑定的icon值，使用示例：v-model:icon-value="iconValue"</el-descriptions-item>
+      <el-descriptions-item label="title">弹窗标题</el-descriptions-item>
+      <el-descriptions-item label="clearable">是否可清空，默认为 true</el-descriptions-item>
+      <el-descriptions-item label="placeholder">输入框占位文本</el-descriptions-item>
+    </el-descriptions>
+  </div>
+</template>
+
+<script lang="ts" name="icon-select" setup>
+import { ref } from 'vue';
+import { IconSelect } from '@bcc/components';
+
+const iconValue = ref('');
+</script>
