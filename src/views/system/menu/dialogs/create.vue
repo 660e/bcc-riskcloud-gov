@@ -161,7 +161,7 @@ const forms = ref({
   menuId: undefined,
   parentId: '',
   menuType: 'C',
-  icon: '',
+  icon: 'Menu',
   menuName: '',
   orderNum: 0,
   isFrame: '1',

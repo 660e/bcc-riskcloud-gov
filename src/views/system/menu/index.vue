@@ -12,7 +12,7 @@
       <template #operation="scope">
         <el-button @click="create(scope.row.menuId)" type="primary" link>新增</el-button>
         <el-button @click="create(scope.row)" type="primary" link>编辑</el-button>
-        <el-button @click="remove(scope.row)" type="primary" link>删除</el-button>
+        <el-button @click="remove(scope.row)" type="danger" link>删除</el-button>
       </template>
     </pro-table>
 
