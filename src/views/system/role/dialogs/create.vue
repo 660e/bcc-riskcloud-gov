@@ -16,7 +16,7 @@
           </template>
           <el-input v-model="forms.roleKey" />
         </el-form-item>
-        <el-form-item label="显示顺序" prop="roleSort">
+        <el-form-item label="序号" prop="roleSort">
           <el-input-number v-model="forms.roleSort" :min="0" />
         </el-form-item>
         <el-form-item label="状态" prop="status">

@@ -10,7 +10,7 @@
       <el-form-item label="字典键值" prop="dictValue">
         <el-input v-model="forms.dictValue" />
       </el-form-item>
-      <el-form-item label="显示排序" prop="dictSort">
+      <el-form-item label="序号" prop="dictSort">
         <el-input-number v-model="forms.dictSort" :min="0" />
       </el-form-item>
       <el-form-item label="状态" prop="status">

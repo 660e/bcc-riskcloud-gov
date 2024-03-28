@@ -36,8 +36,8 @@ const createDialogRef = ref();
 
 const columns: ColumnProps[] = [
   { prop: 'menuName', label: '菜单名称', search: { el: 'input' } },
+  { prop: 'orderNum', label: '序号', width: 100 },
   { prop: 'icon', label: '菜单图标', width: 100 },
-  { prop: 'orderNum', label: '显示顺序', width: 100 },
   { prop: 'perms', label: '权限标识' },
   { prop: 'path', label: '路由地址' },
   { prop: 'component', label: '组件路径' },

@@ -46,10 +46,10 @@ const createDataDialogRef = ref();
 
 const columns: ColumnProps[] = [
   { type: 'selection', width: 0 },
+  { prop: 'dictSort', label: '序号', width: 100 },
   { prop: 'dictCode', label: '字典编码', width: 100 },
   { prop: 'dictLabel', label: '字典标签', search: { el: 'input' } },
   { prop: 'dictValue', label: '字典键值', width: 100 },
-  { prop: 'dictSort', label: '显示顺序', width: 100 },
   {
     prop: 'status',
     label: '状态',
