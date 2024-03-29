@@ -2,16 +2,24 @@
   <div class="flex flex-col h-full">
     <pro-table :columns="columns" :request-api="getUserList" ref="tableRef" row-key="userId">
       <template #tableHeader>
-        <el-button @click="create()" type="primary">新增</el-button>
-        <el-button @click="importData">导入</el-button>
-        <el-button @click="exportData">导出</el-button>
-        <el-button @click="remove" :disabled="!tableRef?.selectedListIds.length" type="danger" plain>删除</el-button>
+        <el-button v-auth="['system:user:add']" @click="create()" type="primary">新增</el-button>
+        <el-button v-auth="['system:user:import']" @click="importData">导入</el-button>
+        <el-button v-auth="['system:user:export']" @click="exportData">导出</el-button>
+        <el-button
+          v-auth="['system:user:remove']"
+          :disabled="!tableRef?.selectedListIds.length"
+          @click="remove"
+          type="danger"
+          plain
+        >
+          删除
+        </el-button>
       </template>
       <template #operation="scope">
         <template v-if="scope.row.userId !== 1">
-          <el-button @click="create(scope.row)" type="primary" link>编辑</el-button>
-          <el-button @click="remove(scope.row)" type="danger" link>删除</el-button>
-          <el-button @click="reset(scope.row)" type="primary" link>重置密码</el-button>
+          <el-button v-auth="['system:user:edit']" @click="create(scope.row)" type="primary" link>编辑</el-button>
+          <el-button v-auth="['system:user:remove']" @click="remove(scope.row)" type="danger" link>删除</el-button>
+          <el-button v-auth="['system:user:resetPwd']" @click="reset(scope.row)" type="primary" link>重置密码</el-button>
         </template>
       </template>
     </pro-table>

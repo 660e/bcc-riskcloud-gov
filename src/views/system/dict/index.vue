@@ -2,15 +2,23 @@
   <div class="flex flex-col h-full">
     <pro-table :columns="columns" :request-api="getDictTypeList" ref="tableRef" row-key="dictId">
       <template #tableHeader>
-        <el-button @click="create()" type="primary">新增</el-button>
-        <el-button @click="exportData">导出</el-button>
-        <el-button @click="remove" :disabled="!tableRef?.selectedListIds.length" type="danger" plain>删除</el-button>
+        <el-button v-auth="['system:dict:add']" @click="create()" type="primary">新增</el-button>
+        <el-button v-auth="['system:dict:export']" @click="exportData">导出</el-button>
+        <el-button
+          v-auth="['system:dict:remove']"
+          :disabled="!tableRef?.selectedListIds.length"
+          @click="remove"
+          type="danger"
+          plain
+        >
+          删除
+        </el-button>
         <el-button @click="refreshCache">刷新缓存</el-button>
       </template>
       <template #operation="scope">
         <el-button @click="setting(scope.row)" type="primary" link>配置</el-button>
-        <el-button @click="create(scope.row)" type="primary" link>编辑</el-button>
-        <el-button @click="remove(scope.row)" type="danger" link>删除</el-button>
+        <el-button v-auth="['system:dict:edit']" @click="create(scope.row)" type="primary" link>编辑</el-button>
+        <el-button v-auth="['system:dict:remove']" @click="remove(scope.row)" type="danger" link>删除</el-button>
       </template>
     </pro-table>
 

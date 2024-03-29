@@ -2,7 +2,7 @@
   <div class="flex flex-col h-full">
     <pro-table :columns="columns" :request-api="requestApi" :pagination="false" row-key="menuId" ref="tableRef">
       <template #tableHeader>
-        <el-button @click="create(0)" type="primary">新增</el-button>
+        <el-button v-auth="['system:menu:add']" @click="create(0)" type="primary">新增</el-button>
       </template>
       <template #icon="scope">
         <el-icon v-if="scope.row.icon" :size="16">
@@ -10,9 +10,9 @@
         </el-icon>
       </template>
       <template #operation="scope">
-        <el-button @click="create(scope.row.menuId)" type="primary" link>新增</el-button>
-        <el-button @click="create(scope.row)" type="primary" link>编辑</el-button>
-        <el-button @click="remove(scope.row)" type="danger" link>删除</el-button>
+        <el-button v-auth="['system:menu:add']" @click="create(scope.row.menuId)" type="primary" link>新增</el-button>
+        <el-button v-auth="['system:menu:edit']" @click="create(scope.row)" type="primary" link>编辑</el-button>
+        <el-button v-auth="['system:menu:remove']" @click="remove(scope.row)" type="danger" link>删除</el-button>
       </template>
     </pro-table>
 

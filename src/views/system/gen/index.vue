@@ -2,16 +2,20 @@
   <div class="flex flex-col h-full">
     <pro-table :columns="columns" :request-api="getList" ref="tableRef" row-key="tableId">
       <template #tableHeader>
-        <el-button @click="importData" type="primary">导入</el-button>
-        <el-button @click="remove" :disabled="!tableRef?.selectedListIds.length" type="danger" plain>删除</el-button>
-        <el-button @click="generate" :disabled="!tableRef?.selectedListIds.length">生成代码</el-button>
+        <el-button v-auth="['tool:gen:import']" @click="importData" type="primary">导入</el-button>
+        <el-button v-auth="['tool:gen:remove']" @click="remove" :disabled="!tableRef?.selectedListIds.length" type="danger" plain>
+          删除
+        </el-button>
+        <el-button v-aauth="['tool:gen:code']" @click="generate" :disabled="!tableRef?.selectedListIds.length">
+          生成代码
+        </el-button>
       </template>
       <template #operation="scope">
-        <el-button @click="preview(scope.row.tableId)" type="primary" link>预览</el-button>
-        <el-button @click="edit(scope.row.tableId)" type="primary" link>编辑</el-button>
-        <el-button @click="remove(scope.row)" type="danger" link>删除</el-button>
+        <el-button v-auth="['tool:gen:preview']" @click="preview(scope.row.tableId)" type="primary" link>预览</el-button>
+        <el-button v-auth="['tool:gen:edit']" @click="edit(scope.row.tableId)" type="primary" link>编辑</el-button>
+        <el-button v-auth="['tool:gen:remove']" @click="remove(scope.row)" type="danger" link>删除</el-button>
         <el-button @click="sync(scope.row.tableName)" type="primary" link>同步</el-button>
-        <el-button @click="generate(scope.row)" type="primary" link>生成代码</el-button>
+        <el-button v-aauth="['tool:gen:code']" @click="generate(scope.row)" type="primary" link>生成代码</el-button>
       </template>
     </pro-table>
 

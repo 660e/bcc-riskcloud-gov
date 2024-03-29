@@ -2,14 +2,22 @@
   <div class="flex flex-col h-full">
     <pro-table :columns="columns" :request-api="getRoleList" ref="tableRef" row-key="roleId">
       <template #tableHeader>
-        <el-button @click="create()" type="primary">新增</el-button>
-        <el-button @click="exportData">导出</el-button>
-        <el-button @click="remove" :disabled="!tableRef?.selectedListIds.length" type="danger" plain>删除</el-button>
+        <el-button v-auth="['system:role:add']" @click="create()" type="primary">新增</el-button>
+        <el-button v-auth="['system:role:export']" @click="exportData">导出</el-button>
+        <el-button
+          v-auth="['system:role:remove']"
+          :disabled="!tableRef?.selectedListIds.length"
+          @click="remove"
+          type="danger"
+          plain
+        >
+          删除
+        </el-button>
       </template>
       <template #operation="scope">
         <template v-if="scope.row.roleId !== 1">
-          <el-button @click="create(scope.row)" type="primary" link>编辑</el-button>
-          <el-button @click="remove(scope.row)" type="danger" link>删除</el-button>
+          <el-button v-auth="['system:role:edit']" @click="create(scope.row)" type="primary" link>编辑</el-button>
+          <el-button v-auth="['system:role:remove']" @click="remove(scope.row)" type="danger" link>删除</el-button>
           <el-button @click="setting(scope.row)" type="primary" link>分配用户</el-button>
         </template>
       </template>
