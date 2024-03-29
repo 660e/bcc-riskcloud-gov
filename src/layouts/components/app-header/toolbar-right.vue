@@ -1,12 +1,12 @@
 <template>
   <div class="tool-bar-ri">
     <div class="header-icon">
-      <message-box />
-      <assembly-size />
-      <language-setting />
-      <search-menu />
-      <theme-setting />
-      <full-screen />
+      <message-box v-auth="['layout:message']" />
+      <assembly-size v-auth="['layout:assembly']" />
+      <language-setting v-auth="['layout:language']" />
+      <search-menu v-auth="['layout:search']" />
+      <theme-setting v-auth="['layout:theme']" />
+      <full-screen v-auth="['layout:fullscreen']" />
     </div>
     <span class="username">{{ nickName }}</span>
     <the-avatar />

@@ -19,7 +19,7 @@
           <el-input v-model="forms.menuName" />
         </el-form-item>
         <el-form-item label="序号" prop="orderNum">
-          <el-input-number v-model="forms.orderNum" :min="0" controls-position="right" class="w-full" />
+          <el-input-number v-model="forms.orderNum" :min="0" class="w-full" />
         </el-form-item>
         <el-form-item v-if="forms.menuType === 'M' || forms.menuType === 'C'" prop="isFrame">
           <template #label>
