@@ -1,13 +1,16 @@
 <script lang="ts" name="tianditu" setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import { CloudMarkerCollection, MapMarker, OnePicture, PlanMarker, SensitiveTargets } from '@bcc/ui';
 
 const data = ref();
-const active = ref(3);
+const config = reactive({
+  company: {}
+});
+const active = ref(1);
 const activeChange = (value: number) => {
   switch (value) {
     case 1: // 周边敏感目标
-      data.value = {
+      config.company = {
         lnglat: [116.22874, 40.07758],
         radius: 200,
         targets: [
@@ -55,7 +58,7 @@ onMounted(() => activeChange(active.value));
     <!-- 海量点位 -->
     <cloud-marker-collection v-if="active === 0" class="flex-1" />
     <!-- 周边敏感目标 -->
-    <sensitive-targets v-if="active === 1" :company="data" class="flex-1 h-0" />
+    <sensitive-targets v-if="active === 1" :config="config" class="flex-1 h-0" />
     <!-- 地图标注 -->
     <map-marker v-if="active === 2" :company="data" class="flex-1 h-0" />
     <!-- 平面图标注 -->
