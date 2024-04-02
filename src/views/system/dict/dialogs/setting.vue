@@ -16,7 +16,7 @@
 
     <template #footer>
       <div class="flex justify-end">
-        <el-button @click="visible = false">取消</el-button>
+        <el-button @click="visible = false">关闭</el-button>
       </div>
     </template>
 
