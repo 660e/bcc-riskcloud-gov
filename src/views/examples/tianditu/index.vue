@@ -3,8 +3,10 @@ import { onMounted, reactive, ref } from 'vue';
 import { CloudMarkerCollection, MapMarker, OnePicture, PlanMarker, SensitiveTargets } from '@bcc/ui';
 
 const data = ref();
-const config = reactive({
-  company: {}
+const config = reactive<any>({
+  company: {},
+  options: {},
+  targets: []
 });
 const active = ref(1);
 const activeChange = (value: number) => {
@@ -18,6 +20,18 @@ const activeChange = (value: number) => {
           { id: 2, label: 'Target-002', lnglat: [116.22733, 40.07677] }
         ]
       };
+      config.options = {
+        range: [
+          { dictLabel: '100米', dictValue: 100 },
+          { dictLabel: '200米', dictValue: 200 }
+        ]
+      };
+      config.targets = [
+        { id: 1, label: 'Target-001', lnglat: [116.22685, 40.07829] },
+        { id: 2, label: 'Target-002', lnglat: [116.22733, 40.07677] },
+        { id: 3, label: 'Target-003', lnglat: [116.22988, 40.07792] },
+        { id: 4, label: 'Target-004', lnglat: [116.22924, 40.07646] }
+      ];
       break;
     case 2: // 地图标注
     case 3: // 平面图标注
