@@ -7,12 +7,7 @@
         </el-form-item>
         <el-form-item prop="roleKey">
           <template #label>
-            <div class="flex items-center space-x-1">
-              <span>权限字符</span>
-              <el-tooltip content="控制器中定义的权限字符，如：@PreAuthorize(`@ss.hasRole('admin')`)" placement="top">
-                <el-icon><QuestionFilled /></el-icon>
-              </el-tooltip>
-            </div>
+            <label-tooltip label="权限字符" content="控制器中定义的权限字符，如：@PreAuthorize(`@ss.hasRole('admin')`)" />
           </template>
           <el-input v-model="forms.roleKey" />
         </el-form-item>
@@ -46,6 +41,7 @@
 import { reactive, ref } from 'vue';
 import { ElMessage, FormInstance, FormRules } from 'element-plus';
 import { createRole, editRole, getDictDataType, treeselect, roleMenuTreeselect } from '@/api/modules/system';
+import { LabelTooltip } from '@bcc/components';
 
 const $emit = defineEmits(['confirm']);
 
