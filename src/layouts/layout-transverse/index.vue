@@ -9,7 +9,11 @@
       <el-menu mode="horizontal" :router="false" :default-active="activeMenu">
         <!-- 不能直接使用 SubMenu 组件，无法触发 el-menu 隐藏省略功能 -->
         <template v-for="subItem in menuList" :key="subItem.path">
-          <el-sub-menu v-if="subItem.children?.length" :key="subItem.path" :index="subItem.path + 'el-sub-menu'">
+          <el-sub-menu
+            v-if="subItem.children?.length && subItem.path !== '/'"
+            :key="subItem.path"
+            :index="subItem.path + 'el-sub-menu'"
+          >
             <template #title>
               <el-icon>
                 <component :is="subItem.meta.icon"></component>
@@ -18,6 +22,19 @@
             </template>
             <sub-menu :menu-list="subItem.children" />
           </el-sub-menu>
+          <el-menu-item
+            v-else-if="subItem.path === '/' && subItem.children?.length"
+            :key="subItem.children[0].path + 'el-menu-item'"
+            :index="subItem.children[0].path"
+            @click="handleClickMenu(subItem.children[0])"
+          >
+            <el-icon>
+              <component :is="subItem.children[0].meta.icon"></component>
+            </el-icon>
+            <template #title>
+              <span>{{ subItem.children[0].meta.title }}</span>
+            </template>
+          </el-menu-item>
           <el-menu-item v-else :key="subItem.path + 'el-menu-item'" :index="subItem.path" @click="handleClickMenu(subItem)">
             <el-icon>
               <component :is="subItem.meta.icon"></component>
