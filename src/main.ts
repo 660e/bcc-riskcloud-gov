@@ -8,6 +8,7 @@ import 'element-plus/dist/index.css';
 import 'element-plus/theme-chalk/dark/css-vars.css';
 import '@/styles/element.scss';
 import '@/styles/element-dark.scss';
+import '@/styles/components.scss';
 
 import 'virtual:svg-icons-register';
 import ElementPlus from 'element-plus';

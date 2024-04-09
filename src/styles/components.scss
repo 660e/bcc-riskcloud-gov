@@ -1,0 +1,11 @@
+@import 'tailwindcss/components';
+
+@layer components {
+  .c-subtitle-1 {
+    @apply flex items-center text-base;
+    &::before {
+      content: '';
+      @apply block h-5 w-1 bg-sky-500 mr-1;
+    }
+  }
+}
