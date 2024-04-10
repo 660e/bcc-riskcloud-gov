@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="visible" title="添加用户" width="1000" align-center draggable>
+  <el-dialog v-model="visible" title="添加用户" width="1000">
     <div class="p-2.5">
       <pro-table :columns="columns" :request-api="requestApi" ref="tableRef" row-key="userId" />
     </div>

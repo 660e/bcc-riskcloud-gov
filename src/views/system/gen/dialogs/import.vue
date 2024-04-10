@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="visible" title="导入" align-center draggable>
+  <el-dialog v-model="visible" title="导入">
     <div class="p-2.5">
       <pro-table :columns="columns" :request-api="getDbList" ref="tableRef" row-key="tableName" />
     </div>

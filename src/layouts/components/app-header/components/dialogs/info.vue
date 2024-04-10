@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="visible" title="个人信息" width="500" align-center draggable>
+  <el-dialog v-model="visible" title="个人信息" width="500">
     <div class="p-5">
       <table class="table">
         <tr>

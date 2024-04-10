@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="visible" :title="forms.dictId ? '编辑' : '新增'" @closed="closed" width="500" align-center draggable>
+  <el-dialog v-model="visible" :title="forms.dictId ? '编辑' : '新增'" @closed="closed" width="500">
     <el-form :model="forms" :rules="rules" label-width="100" ref="formsRef" class="px-5 pt-5">
       <el-form-item label="字典名称" prop="dictName">
         <el-input v-model="forms.dictName" />

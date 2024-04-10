@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="visible" title="修改密码" width="500" align-center draggable>
+  <el-dialog v-model="visible" title="修改密码" width="500">
     <div class="p-5">修改密码</div>
 
     <template #footer>

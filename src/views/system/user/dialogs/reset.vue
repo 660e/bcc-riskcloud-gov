@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="visible" @closed="closed" title="重置密码" width="500" align-center draggable>
+  <el-dialog v-model="visible" @closed="closed" title="重置密码" width="500">
     <el-form :model="forms" :rules="rules" ref="formsRef" class="px-5 pt-5">
       <el-form-item label="新密码" prop="password">
         <el-input v-model="forms.password" type="password" maxlength="20" show-password />

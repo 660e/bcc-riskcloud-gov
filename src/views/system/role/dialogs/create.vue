@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="visible" :title="forms.roleId ? '编辑' : '新增'" @closed="closed" width="800" align-center draggable>
+  <el-dialog v-model="visible" :title="forms.roleId ? '编辑' : '新增'" @closed="closed" width="800">
     <el-form :model="forms" :rules="rules" label-width="100" ref="formsRef" class="p-5 flex space-x-5">
       <div class="flex-1">
         <el-form-item label="角色名称" prop="roleName">

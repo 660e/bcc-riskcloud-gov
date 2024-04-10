@@ -1,5 +1,5 @@
 <template>
-  <el-dialog v-model="visible" :title="forms.menuId ? '编辑' : '新增'" @closed="closed" width="800" align-center draggable>
+  <el-dialog v-model="visible" :title="forms.menuId ? '编辑' : '新增'" @closed="closed" width="800">
     <el-form :model="forms" :rules="rules" label-width="100" ref="formsRef" class="px-5 pt-5">
       <el-form-item label="上级菜单" prop="parentId">
         <el-tree-select v-model="forms.parentId" :data="parentIdOptions" check-strictly clearable />
