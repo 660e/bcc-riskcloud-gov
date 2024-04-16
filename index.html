@@ -5,11 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vue.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%- title %></title>
-    <% if (env === 'development') { %>
-    <script type="text/javascript" src="/tdt.js"></script>
-    <% } else { %>
     <script type="text/javascript" src="http://api.tianditu.gov.cn/api?v=4.0&tk=db02bd9c1bafcb5c5812547fe7f87af2"></script>
-    <% } %>
   </head>
   <body>
     <div id="app" class="h-screen text-sm"></div>
