@@ -1,12 +1,11 @@
 <script lang="ts" name="tianditu" setup>
 import { onMounted, ref } from 'vue';
-import { CloudMarkerCollection, MapMarker, OnePicture, PlanMarker } from '@bcc/ui';
+import { CloudMarkerCollection, OnePicture, PlanMarker } from '@bcc/ui';
 
 const data = ref();
-const active = ref(2);
+const active = ref(3);
 const activeChange = (value: number) => {
   switch (value) {
-    case 2: // 地图标注
     case 3: // 平面图标注
       data.value = {
         lnglat: [116.22874, 40.07758],
@@ -35,7 +34,6 @@ onMounted(() => activeChange(active.value));
   <div class="card h-full flex flex-col">
     <el-radio-group v-model="active" @change="activeChange" class="p-2.5">
       <el-radio-button :value="0" label="海量点位" />
-      <el-radio-button :value="2" label="地图标注" />
       <el-radio-button :value="3" label="平面图标注" />
       <el-radio-button :value="4" label="风险一张图" />
     </el-radio-group>
@@ -43,8 +41,6 @@ onMounted(() => activeChange(active.value));
 
     <!-- 海量点位 -->
     <cloud-marker-collection v-if="active === 0" class="flex-1" />
-    <!-- 地图标注 -->
-    <map-marker v-if="active === 2" :company="data" class="flex-1 h-0" />
     <!-- 平面图标注 -->
     <plan-marker v-if="active === 3" :company="data" class="flex-1 h-0" />
     <!-- 风险一张图 -->
