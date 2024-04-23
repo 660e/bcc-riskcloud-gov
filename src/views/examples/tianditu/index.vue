@@ -1,25 +1,11 @@
 <script lang="ts" name="tianditu" setup>
 import { onMounted, ref } from 'vue';
-import { CloudMarkerCollection, OnePicture, PlanMarker } from '@bcc/ui';
+import { CloudMarkerCollection, OnePicture } from '@bcc/ui';
 
 const data = ref();
-const active = ref(3);
+const active = ref(4);
 const activeChange = (value: number) => {
   switch (value) {
-    case 3: // 平面图标注
-      data.value = {
-        lnglat: [116.22874, 40.07758],
-        sources: [
-          { id: 1, label: 'Risk-001-L1', type: 'danger' },
-          { id: 2, label: 'Risk-002-L2', type: 'warning' },
-          { id: 3, label: 'Risk-003-L2', type: 'warning' },
-          { id: 4, label: 'Risk-004-L2', type: 'warning' },
-          { id: 5, label: 'Risk-005-L3', type: 'primary' },
-          { id: 6, label: 'Risk-006-L3', type: 'primary' },
-          { id: 7, label: 'Risk-007-L4', type: 'success' }
-        ]
-      };
-      break;
     case 4: // 风险一张图
       // data.value = 110000; // 北京
       data.value = 510100; // 成都
@@ -34,15 +20,12 @@ onMounted(() => activeChange(active.value));
   <div class="card h-full flex flex-col">
     <el-radio-group v-model="active" @change="activeChange" class="p-2.5">
       <el-radio-button :value="0" label="海量点位" />
-      <el-radio-button :value="3" label="平面图标注" />
       <el-radio-button :value="4" label="风险一张图" />
     </el-radio-group>
     <el-divider class="m-0" />
 
     <!-- 海量点位 -->
     <cloud-marker-collection v-if="active === 0" class="flex-1" />
-    <!-- 平面图标注 -->
-    <plan-marker v-if="active === 3" :company="data" class="flex-1 h-0" />
     <!-- 风险一张图 -->
     <one-picture v-if="active === 4" :code="data" class="flex-1" />
   </div>
