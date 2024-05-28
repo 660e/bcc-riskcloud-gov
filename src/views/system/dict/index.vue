@@ -50,8 +50,8 @@ const settingDialogRef = ref();
 const columns: ColumnProps[] = [
   { type: 'selection', width: 0 },
   { prop: 'dictId', label: '字典编号', width: 100 },
-  { prop: 'dictName', label: '字典名称', search: { el: 'input' } },
-  { prop: 'dictType', label: '字典类型', search: { el: 'input' } },
+  { prop: 'dictName', label: '字典名称', search: { el: 'input' }, width: 200 },
+  { prop: 'dictType', label: '字典类型', search: { el: 'input' }, width: 200 },
   {
     prop: 'status',
     label: '状态',
